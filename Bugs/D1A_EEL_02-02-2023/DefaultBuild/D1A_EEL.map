@@ -1,0 +1,94 @@
+Renesas Optimizing Linker (W3.04.00 )             02-Feb-2023 14:23:55
+
+*** Options ***
+
+-subcommand=DefaultBuild\D1A_EEL.clnk
+-Input=DefaultBuild\cstart.obj
+-Input=DefaultBuild\hdwinit.obj
+-Input=DefaultBuild\stkinit.obj
+-Input=DefaultBuild\r_cg_cgc.obj
+-Input=DefaultBuild\r_cg_cgc_user.obj
+-Input=DefaultBuild\r_cg_port.obj
+-Input=DefaultBuild\r_cg_port_user.obj
+-Input=DefaultBuild\r_cg_timer.obj
+-Input=DefaultBuild\r_cg_timer_user.obj
+-Input=DefaultBuild\r_main.obj
+-Input=DefaultBuild\r_systeminit.obj
+-Input=DefaultBuild\eel_descriptor.obj
+-Input=DefaultBuild\fdl_descriptor.obj
+-Input=DefaultBuild\r_eel.obj
+-LIBrary=EEL\CCRL_100\EEL\lib\eel.lib
+-LIBrary=EEL\CCRL_100\FDL\lib\fdl.lib
+-SECURITY_ID=00000000000000000000
+-DEVICE=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10DPL.DVF
+-DEBug
+-NOCOmpress
+-NOOPtimize
+-OUtput=DefaultBuild\D1A_EEL.abs
+-LIBrary=C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.11.00\lib\rl78cm4s.lib
+-LIBrary=C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.11.00\lib\malloc_n.lib
+-LIBrary=C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.11.00\lib\rl78cm4r.lib
+-DEBUG_MONITOR
+-LISt=DefaultBuild\D1A_EEL.map
+-STARt=FDL_COD*,EEL_CODE*/000D8,FDL_CNST*,EEL_CNST*,.const,.text,.RLIB,.SLIB,.textf,.constf,.data,.sdata/08000,.dataR,.bss/F9F00,FDL_SDAT*,EEL_SDAT*,.sdataR,.sbss/FFE20
+-ROm=.data=.dataR
+-ROm=.sdata=.sdataR
+-NOMessage
+-MEMory=High
+-NOLOgo
+-end
+
+*** Error information ***
+
+W0561520:"user option byte" in ".option_byte" created by device file
+W0561520:"on chip debug" in ".option_byte" created by device file
+
+*** Mapping List ***
+
+SECTION                            START      END         SIZE   ALIGN
+.vect
+                                  00000000  0000007f        80   0
+.option_byte
+                                  000000c0  000000c3         4   1
+.security_id
+                                  000000c4  000000cd         a   1
+.monitor1
+                                  000000ce  000000d7         a   1
+FDL_CODE
+                                  000000d8  000002fb       224   2
+EEL_CODE
+                                  000002fc  00000d66       a6b   2
+FDL_CNST_f
+                                  00008000  00008009         a   2
+EEL_CNST_f
+                                  0000800a  00008014         b   2
+.const
+                                  00008016  00008016         0   2
+.text
+                                  00008016  00008071        5c   1
+.RLIB
+                                  00008072  000080a1        30   1
+.SLIB
+                                  000080a2  000080a2         0   1
+.textf
+                                  000080a2  000083eb       34a   1
+.constf
+                                  000083ec  000083ec         0   2
+.data
+                                  000083ec  000083ff        14   2
+.sdata
+                                  00008400  00008400         0   2
+.monitor2
+                                  0007fe00  0007ffff       200   1
+.dataR
+                                  000f9f00  000f9f13        14   2
+.bss
+                                  000f9f14  000f9f30        1d   2
+FDL_SDAT
+                                  000ffe20  000ffe21         2   2
+EEL_SDAT
+                                  000ffe22  000ffe22         1   2
+.sdataR
+                                  000ffe24  000ffe24         0   2
+.sbss
+                                  000ffe24  000ffe24         0   2

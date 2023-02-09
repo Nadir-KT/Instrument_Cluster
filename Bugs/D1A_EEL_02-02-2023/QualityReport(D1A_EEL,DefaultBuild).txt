@@ -1,0 +1,295 @@
+QualityReport
+15 November 2022 22:07:45
+
+------ Start build(D1A_EEL, DefaultBuild) ------
+C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.11.00\Bin\ccrl.exe D1A_EEL\applilet3_src\r_main.c -cpu=S2 -o DefaultBuild\r_main.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10DPL.DVF" -g -g_line -I EEL\CCRL_100\FDL\Sample\C -I EEL\CCRL_100\EEL\Sample\C -I EEL\CCRL_100\FDL\lib -I EEL\CCRL_100\EEL\lib -I . -I D1A_EEL\applilet3_src -I .\ -c -MAKEUD=DefaultBuild -exec_time=C:\Users\Satej\AppData\Local\Temp\CSPlusBuildTool_676be6dd1e9846fe99b8a2e33a3598eencry42mx.3c2 -msg_lang=english
+D1A_EEL\applilet3_src\r_main.c(77):W0520177:Variable "requester" was declared but never referenced
+D1A_EEL\applilet3_src\r_main.c(78):W0520177:Variable "read_id" was declared but never referenced
+D1A_EEL\applilet3_src\r_main.c(79):W0520550:Variable "ret" was set but never used
+D1A_EEL\applilet3_src\r_main.c(81):W0520177:Variable "buff" was declared but never referenced
+C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.11.00\Bin\rlink.exe -MAKEUD=DefaultBuild\D1A_EEL.lk.ud -subcommand=DefaultBuild\D1A_EEL.clnk
+W0561017:The evaluation period of CC-RL V1 has expired. Please consider purchasing the product.
+W0561520:"user option byte" in ".option_byte" created by device file
+W0561520:"on chip debug" in ".option_byte" created by device file
+W0561017:The evaluation period of CC-RL V1 has expired. Please consider purchasing the product.
+Renesas Optimizing Linker Completed
+------ Build ended(Error:0, Warning:8)(D1A_EEL, DefaultBuild) ------
+
+--- CommandFile 1 ---
+DefaultBuild\D1A_EEL.clnk :
+-Input=DefaultBuild\cstart.obj
+-Input=DefaultBuild\hdwinit.obj
+-Input=DefaultBuild\stkinit.obj
+-Input=DefaultBuild\r_cg_cgc.obj
+-Input=DefaultBuild\r_cg_cgc_user.obj
+-Input=DefaultBuild\r_cg_port.obj
+-Input=DefaultBuild\r_cg_port_user.obj
+-Input=DefaultBuild\r_cg_timer.obj
+-Input=DefaultBuild\r_cg_timer_user.obj
+-Input=DefaultBuild\r_main.obj
+-Input=DefaultBuild\r_systeminit.obj
+-Input=DefaultBuild\eel_descriptor.obj
+-Input=DefaultBuild\fdl_descriptor.obj
+-Input=DefaultBuild\r_eel.obj
+-LIBrary=EEL\CCRL_100\EEL\lib\eel.lib
+-LIBrary=EEL\CCRL_100\FDL\lib\fdl.lib
+-SECURITY_ID=00000000000000000000
+-DEVICE=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10DPL.DVF
+-DEBug
+-NOCOmpress
+-NOOPtimize
+-OUtput=DefaultBuild\D1A_EEL.abs
+-LIBrary=C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.11.00\lib\rl78cm4s.lib
+-LIBrary=C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.11.00\lib\malloc_n.lib
+-LIBrary=C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.11.00\lib\rl78cm4r.lib
+-LISt=DefaultBuild\D1A_EEL.map
+-STARt=FDL_COD*,EEL_CODE*/000D8,FDL_CNST*,EEL_CNST*,.const,.text,.RLIB,.SLIB,.textf,.constf,.data,.sdata/08000,.dataR,.bss/F9F00,FDL_SDAT*,EEL_SDAT*,.sdataR,.sbss/FFE20
+-ROm=.data=.dataR
+-ROm=.sdata=.sdataR
+-NOMessage
+-MEMory=High
+-NOLOgo
+-end
+-Input=DefaultBuild\D1A_EEL.abs
+-DEVICE=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10DPL.DVF
+-OUtput=DefaultBuild\D1A_EEL.mot
+-FOrm=Stype
+-NOMessage
+-exit
+
+
+--- SHA1 hash value of output files ---
+E:\ABU\Customer data\PVG Automotive\Cluster\D1A_EEL\D1A_EEL\DefaultBuild\D1A_EEL.abs: a55e2647df531888ba92e29847571b1ab0eb89e4
+E:\ABU\Customer data\PVG Automotive\Cluster\D1A_EEL\D1A_EEL\DefaultBuild\D1A_EEL.mot: cd1c0cb9029dda1e12102ad64fe0e1292cc473a9
+
+
+--- System Information ---
+*OS Version
+ Microsoft Windows 11 Pro (-, 10.0.22000, WOW64)
+*Language
+ English (United States)
+*.NET Framework Version
+ Microsoft .NET Framework 4 [.NET 4.8 or later] (528449)
+
+--- Application Information ---
+*Product Name
+ CS+ for CC
+*Package Version
+ V8.08.00  [10 Jun 2022]
+*Version
+ V9.08.00.02 [13 May 2022]
+*Assembly Version
+ 3.12.10.1
+*Sales Area
+ Japan
+*Product License
+ 
+*Execution Place
+ C:\Program Files (x86)\Renesas Electronics\CS+\CC
+*Memory Usage
+ *Private Working Set
+  254 MB
+ *Number of GDI Objects
+  2075
+ *Number of USER Objects
+  1050
+ *Opened Files
+  2 editors, 2 files, 18 KB
+
+--- Build Tool Plug-in Information ---
+RH850 Build tool CC-RH Plug-in
+ *Version
+  V8.02.00.00 [25 Mar 2019]
+ *Assembly Version
+  1.1.10.12
+ *DLL File Name
+  BuildToolCCRH.dll
+RL78 Build tool CC-RL Plug-in
+ *Version
+  V8.08.00.00 [22 Apr 2022]
+ *Assembly Version
+  1.0.0.0
+ *DLL File Name
+  BuildToolCCRL.dll
+RX Build tool CC-RX Plug-in
+ *Version
+  V8.02.00.00 [25 Mar 2019]
+ *Assembly Version
+  3.12.10.1
+ *DLL File Name
+  BuildToolCCRX.dll
+RH850 Build tool GHS CCRH850 Plug-in
+ *Version
+  V1.06.00.01 [27 May 2022]
+ *Assembly Version
+  1.0.0.0
+ *DLL File Name
+  BuildToolGHSCCRH850.dll
+
+--- Debug Tool Plug-in Information ---
+Debugger Collection Plug-in
+ *Version
+  V8.08.00.03 [30 May 2022]
+ *Assembly Version
+  2.12.10.1
+ *DLL File Name
+  DebugToolCollection.dll
+
+--- Other Plug-in Information ---
+Code Generator Plug-in for RH850
+ *Version
+  V1.02.02.05 [25 May 2018]
+ *Assembly Version
+  1.0.0.0
+ *DLL File Name
+  CodeGeneratorRH850.dll
+Code Generator Plug-in
+ *Version
+  V4.08.05.01 [14 Aug 2020]
+ *Assembly Version
+  3.0.0.0
+ *DLL File Name
+  CodePart.dll
+Code Generator/PinView Plug-in
+ *Version
+  V2.10.07.02 [08 Nov 2021]
+ *Assembly Version
+  1.0.0.0
+ *DLL File Name
+  CodePart2.dll
+Debug Console Plug-in
+ *Version
+  V7.00.00.01 [06 Apr 2018]
+ *Assembly Version
+  7.0.0.0
+ *DLL File Name
+  DebugConsole.dll
+Quick and Effective tool solution - QE
+ *Version
+  V9.08.00.03 [23 May 2022]
+ *Assembly Version
+  1.15.10.16
+ *DLL File Name
+  InCarTools.dll
+Pin Configurator Plug-in
+ *Version
+  V1.54.01.01 [31 Jul 2014]
+ *Assembly Version
+  1.6.10.23
+ *DLL File Name
+  PinConfig.dll
+Program Analyzer Plug-in
+ *Version
+  V4.12.00.01 [14 Apr 2021]
+ *Assembly Version
+  3.12.11.9
+ *DLL File Name
+  ProgramAnalyzer.dll
+IronPython Console Plug-in
+ *Version
+  V1.44.00.03 [06 Jun 2022]
+ *Assembly Version
+  1.6.10.23
+ *DLL File Name
+  PythonConsole.dll
+Editor plug-in DLL
+ *Version
+  V1.18.00.01 [22 Apr 2022]
+ *Assembly Version
+  1.1.0.0
+ *DLL File Name
+  SEditor.dll
+Smart Configurator for RH850 Communication Plug-in
+ *Version
+  V1.02.04.01 [20 May 2022]
+ *Assembly Version
+  1.0.0.0
+ *DLL File Name
+  SmcCodePartRH850.dll
+Smart Configurator for RL78 Communication Plug-in
+ *Version
+  V1.00.02.01 [28 Feb 2022]
+ *Assembly Version
+  1.0.0.0
+ *DLL File Name
+  SmcCodePartRL78.dll
+Stack Usage Tracer
+ *Version
+  V1.05.00.02 [30 Jul 2014]
+ *Assembly Version
+  1.30.11.15
+ *DLL File Name
+  Stk.dll
+Update Manager Plug-in
+ *Version
+  V2.03.00.02 [29 Oct 2018]
+ *Assembly Version
+  1.13.6.20
+ *DLL File Name
+  Update.dll
+
+Debug Tool Common Interface
+ *Version
+  V8.08.00.03 [30 May 2022]
+ *Assembly Version
+  3.12.10.1
+ *DLL File Name
+  CommonDebuggerInterface.dll
+Device Information Common Interface
+ *Version
+  V9.08.00.01 [22 Apr 2022]
+ *Assembly Version
+  3.0.0.0
+ *DLL File Name
+  DeviceInformation.dll
+
+--- Main Project Information ---
+E:\ABU\Customer data\PVG Automotive\Cluster\D1A_EEL\D1A_EEL\D1A_EEL.mtpj
+Microcontroller Information
+ *R5F10DPL
+  *File Name: Version
+   RL78_Productlist.xml: V8.080000
+   R5F10DPL_common.xml: V1.10.00.XX.XX
+   DR5F10DPL.DVF: V1.10
+   -: -
+   -: -
+  
+
+Build Tool Information
+ *CC-RL
+   * Version of plug-in(*.dll)
+     V8.08.00.03 [03 Jun 2022]
+   * The Version of the Compiler Package
+     V1.11.00
+  
+ * The version of SMS Assembler
+   V1.00.00.01 [29 May 2020]
+ 
+
+Debug Tool Information
+ *RL78 E2
+  Debugger Library V8.08.00.03 [30 May 2022]
+  RL78 E2 Executor V4.09g [27 May 2022]
+  E2 4100 A F/W V07.04
+  
+
+Other Tool Information
+ *None
+
+ *None
+
+ *None
+
+ *None
+
+ *Program Analyzer
+  *Version
+   V4.12.00.01 [14 Apr 2021]
+
+ *None
+
+ *None
+
+ *None
+
+

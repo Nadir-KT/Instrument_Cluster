@@ -1,0 +1,467 @@
+===============================================================================
+    Read me file for the RL78 Flash Data Library T02 (Tiny)
+    and EEPROM Emulation Library T02 (Tiny)
+===============================================================================
+
+--------------------------------------
+the RL78 Flash Data Library T02 (Tiny)
+--------------------------------------
+The Flash Data Library T02 offers the user an easy to use interface to
+directly access the data flash. Depending on the target application, the
+library can be used standalone or in combination with the EEPROM Emulation
+Library T02. Please refer to the documentation for a detailed description.
+
+The following features are supported by the Flash Data Library T02:
+
+Configurable size of user and EEL pool size:                YES
+Access authority check (user pool and EEL pool):            YES
+Access size (read, write, blank-check, verify):             1 to 1024 bytes
+Access size (erase):                                        1 block (1024 bytes)
+Operating modes:                                            Polling
+Request/Response-oriented dialog:                           YES
+Standby/wakeup feature:                                     YES
+Automatic suspend/resume of block-oriented commands:        NO
+Automatic priority control for user access:                 NO
+Automatic priority control for block- and
+                               byte/word-oriented commands: NO
+"Read at any time" capability:                              NO
+Secure open/close synchronization between FDL and EEL:      NO
+EEL support:                                                YES (T02 only)
+
+Please note that in addition to the Flash Data Library T02 there are other
+Flash Data Libraries available from Renesas with different feature sets and
+resource consumptions.
+
+The following libraries are also provided for download:
+
+- RL78 Flash Data Library T01        (Installer: RENESAS_FDL_RL78_T01E_Vx.xx)
+- RL78 Flash Data Library T04 (Pico) (Installer: RENESAS_FDL_RL78_T04E_Vx.xx)
+
+--------------------------------------------
+the RL78 EEPROM Emulation Library T02 (Tiny)
+--------------------------------------------
+While many RL78 devices are equipped with Data flash, a direct usage of this
+non-volatile memory can be more complex than the usage of classical 
+electrically erasable programmable read-only memory (EEPROM), as erases of 
+flash memory can only be performed block-wise, i.e. on rather large continuous 
+address ranges.
+Furthermore, the number of program-erase cycles for each flash block is finite
+and demands for effective data management and wear-leveling techniques.
+
+The EEPROM Emulation Library addresses these challenges by providing a
+simple-to-use software interface to the developers, encapsulating the detailed
+flash management with a framework based on emulated variables. The developer 
+can access (read and write) these variables independently 
+in an EEPROM-like manner.
+This way, the developer can concentrate on the actual functionality of the
+application rather than spending time on tedious details of Data Flash access
+sequences.
+
+The Renesas RL78 EEPROM Emulation Library Type 02 is provided for the  
+CA78K0R, IAR, GNU and CC-RL development environments. In contrast to the also 
+available EEL Type 01 for RL78 devices, the Tiny EEL was especially designed for
+reduced resource consumption (in terms of Code Flash, Data Flash and RAM) in
+order to bring EEPROM emulation also to small RL78 devices. As a result, the
+number of features and the maximum manageable data has been reduced in this 
+library.
+
+The EEPROM Emulation Library T02 is characterized as follows:
+
+Used data flash access layer:                           FDL T02 (TinyFDL)
+Min. required data flash blocks (1 block = 1024 bytes): 2
+Operating modes:                                        polling
+EEL instance size:                                      1 to 255 bytes
+Max. data to be stored:                                 Only one flash block 
+                                                        is active at a time.
+                                                        Dependent on the number
+                                                        and size of variables.
+Flash size of 1 byte EEL instance:                      3 bytes:
+                                                         --> 1 data byte
+                                                         --> 2 admin. bytes
+Flash size of 255 byte EEL instance:                    257 bytes:
+                                                         --> 255 data byte
+                                                         --> 2 admin. bytes
+Administrative block management data @ 1 block:         10 bytes
+Reset resistance:                                       YES
+Blocks rotation (balanced data flash usage):            YES
+Background maintenance process:                         NO
+Variable ID can be configured by user:                  NO (pre-defined IDs)
+Can be used in OS:                                      YES
+
+Please note that in addition to the EEPROM Emulation Library T02 there is 
+another EEPROM Emulation Library available from Renesas with a different 
+feature set and resource consumption.
+
+The following library is also provided for download:
+
+- RL78 EEPROM Emulation Library T01   (Installer: RENESAS_EEL_RL78_T01E_Vx.xx)
+
+
+========
+Contents
+========
+
+  1. Software Corrections and Updates
+  2. General Information
+  3. File Naming
+  4. Supported Devices
+  5. Operating Precautions
+  6. Support
+
+===================================
+1. Software Corrections and Updates
+===================================
+Installer Changes
+-----------------
+    EEL_FDL_T02_Pack02
+    ------------------
+        V2.00
+        -----
+        - Change to new installer
+        - Contains FDL T02 & EEL T02
+        - first port to IAR V2.xx compiler of FDL T02 and EEL T02
+        - Difference information of user's manual (UM)
+          Please replace the following descriptions on target user's manual 
+          with the "Library"part  of "3. File Naming".
+           - UM title: Data Flash Access Library Type T02 (Tiny)
+             Document #: R01US0061ED0120
+             Difference: Page 54 "Table 15: File structure of the Tiny FDL"
+           - UM title: EEPROM Emulation Library Type T02 (Tiny)
+             Document #: R01US0070ED0105
+             Difference: Page 70,71 "Table 18: File structure of the Tiny EEL"
+
+    FDL (old installer)
+    ---
+        V1.30
+        -----
+        first port to CC-RL compiler:
+            - RL78 FDL T02 V1.01 for CA78K0R environment
+            - RL78 FDL T02 V1.02 for IAR V1.xx environment
+            - RL78 FDL T02 V1.01 for GNU environment
+            - RL78 FDL T02 V1.01 for CC-RL environment
+
+        V1.20
+        -----
+        first port to GNU compiler and update of the IAR library:
+            - RL78 FDL T02 V1.01 for CA78K0R environment
+            - RL78 FDL T02 V1.02 for IAR V1.xx environment
+            - RL78 FDL T02 V1.01 for GNU environment
+
+        V1.10
+        -----
+        update of FDL T02 containing the following libraries:
+            - RL78 FDL T02 V1.01 for CA78K0R environment
+            - RL78 FDL T02 V1.01 for IAR V1.xx environment
+
+        V1.00
+        -----
+        first official release of FDL T02 containing the following libraries:
+            - RL78 FDL T02 V1.00 for CA78K0R environment
+            - RL78 FDL T02 V1.00 for IAR V1.xx environment
+
+    EEL (old installer)
+    ---
+        V1.20
+        -----
+        - first port to CC-RL compiler:
+            - RL78 EEL T02 V1.00 for CA78K0R environment
+            - RL78 EEL T02 V1.01 for IAR V1.xx environment
+            - RL78 EEL T02 V1.00 for GNU environment
+            - RL78 EEL T02 V1.00 for CC-RL environment
+
+        V1.10
+        -----
+        - first port to GNU compiler and update of the IAR library:
+            - RL78 EEL T02 V1.00 for CA78K0R environment
+            - RL78 EEL T02 V1.01 for IAR V1.xx environment
+            - RL78 EEL T02 V1.00 for GNU environment
+
+        V1.00
+        ------
+        - first official release
+    
+Library Changes
+---------------
+    FDL
+    ---
+        CA78K0R
+        -------
+            V1.01
+            -----
+            - patch included to avoid bus conflicts during concurring DMA transfer
+              and Data Flash read
+        
+            V1.00
+            -----
+            - first official release of RL78 FDL T02
+    
+        IAR V1.xx
+        ---------
+            V1.02
+            -----
+            - mapping of the library beyond 64K is now supported
+            - application built with compiler feature "far runtime library calls" 
+              can now be linked together with the FDL library (IAR Compiler version
+              V1.40 onwards)
+        
+            V1.01
+            -----
+            - patch included to avoid bus conflicts during concurring DMA transfer
+              and Data Flash read
+            - minor internal code improvements (code size reduction)
+        
+            V1.00
+            -----
+            - first official release of RL78 FDL T02
+        
+        GNU
+        ---
+            V1.01
+            -----
+            - first port to GNU compiler
+        
+        CC-RL
+        -----
+            V1.01
+            -----
+            - first port to CC-RL compiler
+
+        IAR V2.xx
+        ---------
+            V1.00
+            -----
+            - first port to IAR V2.xx compiler
+
+    EEL
+    ---
+        CA78K0R
+        -------
+            V1.00
+            -----
+            - first official release
+
+        IAR V1.xx
+        ---------
+            V1.01
+            -----
+            - mapping of the library beyond 64K is now supported
+            - application built with compiler feature "far runtime library calls" 
+              can now be linked together with the EEL library (IAR Compiler version
+              V1.40 onwards)
+          
+            V1.00
+            -----
+            - first official release
+
+        GNU
+        ---
+            V1.00
+            -----
+            - first port to GNU compiler
+
+        CC-RL
+        -----
+            V1.01
+            -----
+            - first port to CC-RL compiler
+
+
+        IAR V2.xx
+        ---------
+            V1.00
+            -----
+            - first port to IAR V2.xx compiler
+
+
+======================
+2. General Information
+======================
+
+The precompiled EEL and FDL are delivered for the CA78K0R, IAR, GNU 
+and CC-RL development environments.
+
+Supported compilers are:
+
+CA78K0R
+-------
+    Library created on CA78K0R Compiler version:    V1.10
+    Library tested on CA78K0R Compiler version:     V1.70 <EEL>
+    Library tested on CA78K0R Compiler version:     V1.60 <FDL>
+
+IAR
+---
+    Library created on IAR Compiler version:        V1.20
+    Library tested on IAR Compiler version:         V1.30
+    
+    Library created on IAR Compiler version:        V1.40
+    Library tested on IAR Compiler version:         V1.40
+
+    Library is identical to the EEL T02 and FDL T02 V1.00 for CC-RL.
+    Library tested on IAR Compiler version:         V2.21
+
+GNU
+---
+    Library created on GNU Compiler version:        V14.01
+    Library tested on GNU Compiler version:         V14.01
+
+CC-RL
+-----
+    Library created on CC-RL Compiler version:      V1.00
+    Library tested on CC-RL Compiler version:       V1.01
+
+========================================
+3. File Naming
+========================================
+
+Installer
+---------
+    The installer file has the name RENESAS_RL78_EEL_FDL_Txx_PACKxx_{x}V{y}{z}.exe
+    e.g. RENESAS_RL78_EEL-FDL_T02_PACK02_2V00.exe
+
+    {x} This version digit will be incremented in case of major changes 
+        e.g. API changes
+    {y} This version digit will be incremented in case of bug fixes and internal
+        improvements
+    {z} This version digit will be incremented in case of adding support of new
+        devices
+
+
+Library
+-------
+    << Folder: / >>
+        release.txt                 <-  this information file
+        support.txt                 <-  library vesrion information file
+    << Folder: Compiler/FDL/lib >>
+        fdl.h                       <-  FDL interface definition (C compiler)
+                                        DO NOT CHANGE PLEASE
+        fdl.inc                     <-  FDL interface definition (assembler)
+                                        (CA78K0R and CC-RL only)
+                                        DO NOT CHANGE PLEASE
+        fdl_types.h                 <-  FDL header file, FDL types definition
+                                        DO NOT CHANGE PLEASE
+        fdl.lib, fdl.r87, fdl.a     <-  precompiled library file
+                                        DO NOT CHANGE PLEASE
+
+    << Folder:  Compiler/FDL/Sample/C >>                 (C samples)
+        fdl_descriptor.h            <-  sample descriptor, configuration part
+                                        ADAPT DUE TO REQUIREMENTS
+        fdl_descriptor.c            <-  sample descriptor, calculation part
+                                        DO NOT CHANGE PLEASE
+        fdl_sample_linker_file.dr,  <-  linker sample file
+        fdl_sample_linker_file.xcl,     ADAPT DUE TO REQUIREMENTS
+        fdl_sample_linker_file.ld,
+        fdl_sample_linker_file.sub,
+        fdl_sample_linker_file.icf
+
+    << Folder:  Compiler/FDL/Sample/asm >> (assembler samples, CA78K0R and CC-RL only)
+        fdl_descriptor.inc          <-  sample descriptor, configuration part
+                                        ADAPT DUE TO REQUIREMENTS
+        fdl_descriptor.asm          <-  sample descriptor, calculation part
+                                        DO NOT CHANGE PLEASE
+        fdl_sample_linker_file.dr,  <-  linker sample file
+        fdl_sample_linker_file.sub      ADAPT DUE TO REQUIREMENTS
+
+
+    << Folder: Compiler/EEL/lib >>
+        eel.h                       <-  EEL interface definition (C compiler)
+                                        DO NOT CHANGE PLEASE
+        eel.inc                     <-  EEL interface definition (assembler)
+                                        (CA78K0R and CC-RL only)
+                                        DO NOT CHANGE PLEASE
+        eel_types.h                 <-  EEL types definition (C compiler)
+                                        DO NOT CHANGE PLEASE
+        eel_types.inc               <-  EEL types definition (assembler)
+                                        (CA78K0R and CC-RL only)
+                                        DO NOT CHANGE PLEASE
+        eel.lib, eel.r87, eel.a     <-  precompiled library file
+                                        DO NOT CHANGE PLEASE
+
+    << Folder: Compiler/EEL/Sample/C >>    (C samples, Renesas, IAR and GNU)
+        eel_descriptor.h            <-  sample descriptor, configuration part
+                                        ADAPT DUE TO REQUIREMENTS
+        eel_descriptor.c            <-  sample descriptor, calculation part
+                                        DO NOT CHANGE PLEASE
+        eel_user_types.h            <-  user types, configuration part
+                                        ADAPT DUE TO REQUIREMENTS
+        eel_sample_linker_file.dr,  <-  linker sample file
+        eel_sample_linker_file.xcl,     ADAPT DUE TO REQUIREMENTS
+        eel_sample_linker_file.ld,
+        eel_sample_linker_file.sub,
+        eel_sample_linker_file.icf 
+
+    << Folder: Compiler/EEL/Sample/asm >> (assembler samples, CA78K0R and 
+                                        CC-RL only)
+        eel_descriptor.inc          <-  sample descriptor, configuration part
+                                        ADAPT DUE TO REQUIREMENTS
+        eel_descriptor.asm          <-  sample descriptor, calculation part
+                                        DO NOT CHANGE PLEASE
+        eel_sample_linker_file.dr,  <-  linker sample file
+        eel_sample_linker_file.sub      ADAPT DUE TO REQUIREMENTS
+
+
+ How to integrate(EEL)
+ ---------------------
+    1) copy all the files into your project subdirectory
+    2) add all eel*.* files into your project (workbench or make-file)
+       Attention: For C-Compiler project: eel_descriptor.c/eel_descriptor.h
+                  For Assembler project: eel_descriptor.asm/eel_descriptor.inc
+    3) adapt project specific files as follows:
+        a) eel_descriptor.h/eel_descriptor.inc:
+           adapt the pool configuration (please refer to the users manual for
+           detailed description)
+    4) adapt the sample linker file to your requirements,
+       at least the segments EEL_CODE, EEL_CNST, EEL_SDAT, FDL_CODE, FDL_CNST
+       and FDL_SDAT should be defined
+    5) re-compile the project
+
+
+How to integrate(FDL)
+---------------------
+    1) copy all the files into your project subdirectory
+    2) add all fdl*.* files into your project (workbench or make-file)
+       Attention: For C-Compiler project (fdl_descriptor.c/fdl_descriptor.h)
+                  For Assembler  project (fdl_descriptor.asm/fdl_descriptor.inc)
+    3) adapt project specific files as follows:
+        a) fdl_descriptor.h/fdl_descriptor.inc:
+           adapt the pool configuration (please refer to the users manual for
+           detailed description)
+    4) adapt the sample linker file to your requirements,
+       at least the segments FDL_CODE, FDL_CNST and FDL_SDAT should be defined
+    5) re-compile the project
+
+
+====================
+4. Supported Devices
+====================
+For the list of devices supported by this flash library please refer to the 
+RL78 family self RAM list of the Flash Self Programming Library (R20UT2944xxxx) 
+
+========================
+5. Operating Precautions
+========================
+
+All devices and libraries
+-------------------------
+    please refer to the related documentation 
+    FDL: (R01US0061EDxxxx and R20UT3699EJxxxx)
+    EEL: (R01US0070EDxxxx and R20UT3700EJxxxx)
+
+
+==========
+6. Support
+==========
+
+In case of any question please do not hesitate to contact:
+
+        Flash Support
+
+        Renesas Electronics Europe GmbH
+        Arcadiastr. 10
+        D-40472 Duesseldorf, Germany
+
+        email: application_support.flash-eu@lm.renesas.com
+
+===============================================================================
+  End of read me file for the RL78 Flash Data Library T02 (Tiny)
+    and EEPROM Emulation Library T02 (Tiny)
+===============================================================================

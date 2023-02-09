@@ -1,0 +1,34 @@
+===============================================================================
+Support information EEL T02/FDL T02
+===============================================================================
+
+============================
+Library version information
+============================
+    EEL T02
+    -------
+    EEL T02 for CA78K0R             :V1.00
+    EEL T02 for CC-RL               :V1.00
+    EEL T02 for IAR(V2.xx)          :V1.00
+    EEL T02 for IAR(V1.xx)          :V1.01
+    EEL T02 for GNU                 :V1.00 
+
+    FDL T02
+    -------
+    FDL T02 for CA78K0R             :V1.01
+    FDL T02 for CC-RL               :V1.01
+    FDL T02 for IAR(V2.xx)          :V1.01
+    FDL T02 for IAR(V1.xx)          :V1.02
+    FDL T02 for GNU                 :V1.01
+
+=============================
+Supported Devices information 
+=============================
+For the list of devices supported by this flash library please refer to the 
+RL78 family self RAM list of the Flash Self Programming Library (R20UT2944xxxx) 
+
+===============================================================================
+end of Support information EEL T02/FDL T02
+===============================================================================
+
+

@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<MicomToolCommonProjectFile Version="1.00">
+  <CreatorType Name="CubeSuite+" Version="V8.08.00  [10 Jun 2022]" />
+  <Placeholders>
+    <PlaceholderPrefix>%</PlaceholderPrefix>
+    <PlaceholderPostfix>%</PlaceholderPostfix>
+  </Placeholders>
+  <Project Name="D1A_EEL" Type="Application">
+    <Files>
+      <Path>cstart.asm</Path>
+      <Path>hdwinit.asm</Path>
+      <Path>stkinit.asm</Path>
+      <Category Name="src">
+        <Path>D1A_EEL\applilet3_src\r_cg_cgc.c</Path>
+        <Path>D1A_EEL\applilet3_src\r_cg_cgc.h</Path>
+        <Path>D1A_EEL\applilet3_src\r_cg_cgc_user.c</Path>
+        <Path>D1A_EEL\applilet3_src\r_cg_macrodriver.h</Path>
+        <Path>D1A_EEL\applilet3_src\r_cg_port.c</Path>
+        <Path>D1A_EEL\applilet3_src\r_cg_port.h</Path>
+        <Path>D1A_EEL\applilet3_src\r_cg_port_user.c</Path>
+        <Path>D1A_EEL\applilet3_src\r_cg_timer.c</Path>
+        <Path>D1A_EEL\applilet3_src\r_cg_timer.h</Path>
+        <Path>D1A_EEL\applilet3_src\r_cg_timer_user.c</Path>
+        <Path>D1A_EEL\applilet3_src\r_cg_userdefine.h</Path>
+        <Path>D1A_EEL\applilet3_src\r_main.c</Path>
+        <Path>D1A_EEL\applilet3_src\r_systeminit.c</Path>
+      </Category>
+      <Path>iodefine.h</Path>
+      <Category Name="eel_lib">
+        <Path>EEL\CCRL_100\EEL\lib\eel.h</Path>
+        <Path>EEL\CCRL_100\EEL\lib\eel.lib</Path>
+        <Path>EEL\CCRL_100\EEL\lib\eel_types.h</Path>
+        <Path>EEL\CCRL_100\EEL\Sample\C\eel_descriptor.c</Path>
+        <Path>EEL\CCRL_100\EEL\Sample\C\eel_descriptor.h</Path>
+        <Path>EEL\CCRL_100\EEL\Sample\C\eel_user_types.h</Path>
+      </Category>
+      <Category Name="fdl_lib">
+        <Path>EEL\CCRL_100\FDL\lib\fdl.h</Path>
+        <Path>EEL\CCRL_100\FDL\lib\fdl.lib</Path>
+        <Path>EEL\CCRL_100\FDL\lib\fdl_types.h</Path>
+        <Path>EEL\CCRL_100\FDL\Sample\C\fdl_descriptor.c</Path>
+        <Path>EEL\CCRL_100\FDL\Sample\C\fdl_descriptor.h</Path>
+      </Category>
+      <Path>r_eel.c</Path>
+    </Files>
+    <DebugOptions>
+      <ConnectSettings>
+        <MainClock>0</MainClock>
+      </ConnectSettings>
+      <DebugToolSettings />
+    </DebugOptions>
+    <Device Series="RL78">R5F10DPL</Device>
+    <BuildOptions Name="CC-RL" Version="V1.11.00">
+      <BuildMode Name="DefaultBuild" Active="True">
+        <LinkOrder>
+          <Path>DefaultBuild\cstart.obj</Path>
+          <Path>DefaultBuild\hdwinit.obj</Path>
+          <Path>DefaultBuild\stkinit.obj</Path>
+          <Path>DefaultBuild\r_cg_cgc.obj</Path>
+          <Path>DefaultBuild\r_cg_cgc_user.obj</Path>
+          <Path>DefaultBuild\r_cg_port.obj</Path>
+          <Path>DefaultBuild\r_cg_port_user.obj</Path>
+          <Path>DefaultBuild\r_cg_timer.obj</Path>
+          <Path>DefaultBuild\r_cg_timer_user.obj</Path>
+          <Path>DefaultBuild\r_main.obj</Path>
+          <Path>DefaultBuild\r_systeminit.obj</Path>
+          <Path>DefaultBuild\eel_descriptor.obj</Path>
+          <Path>DefaultBuild\fdl_descriptor.obj</Path>
+          <Path>DefaultBuild\r_eel.obj</Path>
+          <Path>EEL\CCRL_100\EEL\lib\eel.lib</Path>
+          <Path>EEL\CCRL_100\FDL\lib\fdl.lib</Path>
+        </LinkOrder>
+        <CommonOptions>
+          <IncludePathForC>EEL\CCRL_100\FDL\Sample\C</IncludePathForC>
+          <IncludePathForC>EEL\CCRL_100\EEL\Sample\C</IncludePathForC>
+          <IncludePathForC>EEL\CCRL_100\FDL\lib</IncludePathForC>
+          <IncludePathForC>EEL\CCRL_100\EEL\lib</IncludePathForC>
+          <IncludePathForC>.</IncludePathForC>
+          <IncludePathForC>D1A_EEL\applilet3_src</IncludePathForC>
+          <IncludePathForC>.\</IncludePathForC>
+        </CommonOptions>
+        <GeneralOptions>
+          <SimultaneouslyBuild>False</SimultaneouslyBuild>
+        </GeneralOptions>
+        <CompileOptions>
+          <Option>-cpu=S2</Option>
+          <Option>-obj_path=%BuildModeName%</Option>
+          <Option>-dev=%MicomToolPath%\Device\RL78\Devicefile\DR5F10DPL.DVF</Option>
+          <Option>-g</Option>
+          <Option>-g_line</Option>
+          <Option>-I EEL\CCRL_100\FDL\Sample\C</Option>
+          <Option>-I EEL\CCRL_100\EEL\Sample\C</Option>
+          <Option>-I EEL\CCRL_100\FDL\lib</Option>
+          <Option>-I EEL\CCRL_100\EEL\lib</Option>
+          <Option>-I .</Option>
+          <Option>-I D1A_EEL\applilet3_src</Option>
+          <Option>-I .\</Option>
+          <Option>-c</Option>
+        </CompileOptions>
+        <AssembleOptions>
+          <Option>-cpu=S2</Option>
+          <Option>-obj_path=%BuildModeName%</Option>
+          <Option>-dev=%MicomToolPath%\Device\RL78\Devicefile\DR5F10DPL.DVF</Option>
+          <Option>-g</Option>
+          <Option>-c</Option>
+        </AssembleOptions>
+        <LinkOptions>
+          <Option>-SECURITY_ID=00000000000000000000</Option>
+          <Option>-DEVICE=%MicomToolPath%\Device\RL78\Devicefile\DR5F10DPL.DVF</Option>
+          <Option>-DEBug</Option>
+          <Option>-NOCOmpress</Option>
+          <Option>-NOOPtimize</Option>
+          <Option>-OUtput=%BuildModeName%\%ProjectName%.abs</Option>
+          <Option>-LIBrary=%MicomToolPath%\CC-RL\V1.11.00\lib\rl78cm4s.lib</Option>
+          <Option>-LIBrary=%MicomToolPath%\CC-RL\V1.11.00\lib\malloc_n.lib</Option>
+          <Option>-LIBrary=%MicomToolPath%\CC-RL\V1.11.00\lib\rl78cm4r.lib</Option>
+          <Option>-DEBUG_MONITOR</Option>
+          <Option>-LISt=%BuildModeName%\%ProjectName%.map</Option>
+          <Option>-STARt=FDL_COD*,EEL_CODE*/000D8,FDL_CNST*,EEL_CNST*,.const,.text,.RLIB,.SLIB,.textf,.constf,.data,.sdata/08000,.dataR,.bss/F9F00,FDL_SDAT*,EEL_SDAT*,.sdataR,.sbss/FFE20</Option>
+          <Option>-ROm=.data=.dataR</Option>
+          <Option>-ROm=.sdata=.sdataR</Option>
+          <Option>-NOMessage</Option>
+          <Option>-MEMory=High</Option>
+          <Option>-NOLOgo</Option>
+          <Option>-END</Option>
+          <Option>-Input=%BuildModeName%\%ProjectName%.abs</Option>
+          <Option>-DEVICE=%MicomToolPath%\Device\RL78\Devicefile\DR5F10DPL.DVF</Option>
+          <Option>-OUtput=%BuildModeName%\%ProjectName%.mot</Option>
+          <Option>-FOrm=Stype</Option>
+          <Option>-NOMessage</Option>
+          <Option>-EXIt</Option>
+        </LinkOptions>
+        <IOHeaderGenerationOptions>
+          <Option>-df=%MicomToolPath%\Device\RL78\Devicefile\DR5F10DPL.DVF</Option>
+          <Option>-o=%ProjectDir%\iodefine.h</Option>
+          <Option>-f</Option>
+          <UpdateIOMode>None</UpdateIOMode>
+        </IOHeaderGenerationOptions>
+      </BuildMode>
+    </BuildOptions>
+  </Project>
+</MicomToolCommonProjectFile>

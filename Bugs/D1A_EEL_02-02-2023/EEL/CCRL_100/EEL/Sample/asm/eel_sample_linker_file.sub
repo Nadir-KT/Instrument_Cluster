@@ -1,0 +1,75 @@
+;*******************************************************************************
+; Library       : Flash Data Library T02 (Tiny FDL)
+;
+; File Name     : $Source: eel_sample_linker_file.sub $
+; Lib. Version  : $RL78_EEL_LIB_VERSION_T02_CCRL: V1.00 $
+; Mod. Revision : $Revision: 1.4 $
+; Mod. Date     : $Date: 2015/03/11 16:09:39MEZ $
+; Device(s)     : RL78/G13 (R5F100LE)
+; Description   : Linker sample file, please modify according to your device
+;******************************************************************************
+; DISCLAIMER
+; This software is supplied by Renesas Electronics Corporation and is only
+; intended for use with Renesas products. No other uses are authorized. This
+; software is owned by Renesas Electronics Corporation and is protected under
+; all applicable laws, including copyright laws.
+; THIS SOFTWARE IS PROVIDED "AS IS" AND RENESAS MAKES NO WARRANTIES REGARDING
+; THIS SOFTWARE, WHETHER EXPRESS, IMPLIED OR STATUTORY, INCLUDING BUT NOT
+; LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE
+; AND NON-INFRINGEMENT. ALL SUCH WARRANTIES ARE EXPRESSLY DISCLAIMED.
+; TO THE MAXIMUM EXTENT PERMITTED NOT PROHIBITED BY LAW, NEITHER RENESAS
+; ELECTRONICS CORPORATION NOR ANY OF ITS AFFILIATED COMPANIES SHALL BE LIABLE
+; FOR ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES FOR
+; ANY REASON RELATED TO THIS SOFTWARE, EVEN IF RENESAS OR ITS AFFILIATES HAVE
+; BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+; Renesas reserves the right, without notice, to make changes to this software
+; and to discontinue the availability of this software. By using this software,
+; you agree to the additional terms and conditions found by accessing the
+; following link:
+; http://www.renesas.com/disclaimer
+;
+; Copyright (C) 2015 Renesas Electronics Corporation. All rights reserved.
+;*******************************************************************************
+
+
+;***********************************************************************************************************************
+; ATTENTION: 
+;   Below settings for the linker only consider the sections required by EEL.
+;   Before using this linker command file it is imperative to add sections according to your application needs.
+;
+; CAUTIONS:
+;   1.  Do not locate any function arguments, data buffers or stack to the short address area from 0xFFE20 to 0xFFEDF.
+;   2.  It is not allowed to locate any arguments and stack memory to the self-RAM area.
+;       For the RAM areas used by the flash library for the given microcontroller, please consult 
+;       "Self RAM list of Flash Self-Programming Library for RL78 Family" (R20UT2943(JPN), R20UT2944(ENG))
+;   3.  Please also consider further restrictions regarding memory sections for your target microcontroller (e.g. for 
+;       on-chip debugging and the mirror area). For details, please consult the "User's Manual: Hardware" of your target
+;       microcontroller.
+;
+; SECTIONS:
+;   1.  FDL_CODE: contain the actual library code of the Tiny FDL
+;       - for CC-RL compiler, the library takes care in the code to define this section with TEXTF_UNIT64KP relocation
+;         attribute
+;   2.  EEL_CODE: contain the actual library code of the Tiny EEL
+;       - for CC-RL compiler, the library takes care in the code to define this section with TEXTF_UNIT64KP relocation
+;         attribute
+;   3.  FDL_CNST: contain the constants used by the Tiny FDL
+;       - for CC-RL compiler, the library takes care in the code to define this section with TEXTF_UNIT64KP relocation
+;         attribute
+;   4.  EEL_CNST: contain the constants used by the Tiny EEL
+;       - for CC-RL compiler, the library takes care in the code to define this section with TEXTF_UNIT64KP relocation
+;         attribute
+;   5.  FDL_SDAT: contain all FDL-internal variables used by the Tiny FDL
+;       - for CC-RL compiler, the library takes care in the code to define this section with SBSS relocation
+;         attribute
+;   6.  EEL_SDAT: contain all EEL-internal variables used by the Tiny EEL
+;       - for CC-RL compiler, the library takes care in the code to define this section with SBSS relocation
+;         attribute
+;***********************************************************************************************************************
+
+; please note that below mapping is only a sample for RL78/G13 (R5F100LE) and might need to be adapted to your 
+; microcontroller
+
+-STARt=FDL_CODE*,EEL_CODE*/D8,FDL_CNST*,EEL_CNST*/8000,FDL_SDAT*,EEL_SDAT*/FFE20 
+
+
